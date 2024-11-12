@@ -24,7 +24,7 @@ if (!function_exists('runBackgroundJob')) {
 
         // Dynamically resolve the class from the string
         if (class_exists($className)) {
-            $instance = app($className);
+            $instance = $className;
             BackgroundJobRunner::run($instance, $method, $parameters, $retries);
         } else {
             Log::channel('background_jobs_errors')->error("Class {$className} not found.");
