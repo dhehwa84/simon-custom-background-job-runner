@@ -1,227 +1,213 @@
-# Background Job Runner Documentation
+Simon Custom Background Job Runner
+==================================
 
-This background job runner allows you to execute PHP classes and methods as background jobs within a Laravel application. It operates independently of Laravel's built-in queue system, providing scalability, error handling, and configurability for running background tasks. This application uses Laravel with Laravel Breeze for authentication and SQLite for quick setup.
+This background job runner allows you to execute PHP classes and methods as background jobs within a Laravel application. It operates independently of Laravel's built-in queue system, offering scalability, error handling, and configurable options for running background tasks. This project uses Laravel with Laravel Breeze for authentication, along with Bootstrap and Tailwind CSS for styling.
 
----
+GitHub Repository: [Simon Custom Background Job Runner](https://github.com/dhehwa84/simon-custom-background-job-runner.git)
 
-## Table of Contents
+* * * * *
 
-- [How the `runBackgroundJob` Function Works](#how-the-runbackgroundjob-function-works)
-- [Function Parameters](#function-parameters)
-- [Setup and Installation](#setup-and-installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-  - [Retry Attempts and Delays](#retry-attempts-and-delays)
-  - [Security Settings](#security-settings)
-- [Logging and Error Handling](#logging-and-error-handling)
-- [Running Test Cases](#running-test-cases)
-- [Assumptions, Limitations, and Potential Improvements](#assumptions-limitations-and-potential-improvements)
+Table of Contents
+-----------------
 
----
+-   [Project Overview](#project-overview)
+-   [Setup and Installation](#setup-and-installation)
+-   [How the `runBackgroundJob` Function Works](#how-the-runbackgroundjob-function-works)
+-   [Usage](#usage)
+-   [Configuration](#configuration)
+    -   [Retry Attempts and Delays](#retry-attempts-and-delays)
+    -   [Security Settings](#security-settings)
+-   [Logging and Error Handling](#logging-and-error-handling)
+-   [Running Test Cases](#running-test-cases)
+-   [Job Dashboard](#job-dashboard)
+-   [Assumptions, Limitations, and Potential Improvements](#assumptions-limitations-and-potential-improvements)
 
-## How the `runBackgroundJob` Function Works
+* * * * *
 
-The `runBackgroundJob` function serves as a helper to initiate a background job in Laravel. It accepts a class name, method, parameters, and retry attempts, then calls `BackgroundJobRunner` to execute the specified method in the background.
+Project Overview
+----------------
 
-## Function Parameters
+The `Simon Custom Background Job Runner` enables you to run background tasks in a Laravel application with custom retry and delay mechanisms, priority handling, and a dedicated dashboard to monitor job statuses. This setup includes both Bootstrap and Tailwind CSS for styling flexibility and uses Laravel Breeze for basic authentication.
 
-- **`$className`** *(string)*: Fully qualified name of the class to run (e.g., `App\Jobs\SampleJob`).
-- **`$method`** *(string)*: Name of the method to execute within the class.
-- **`$parameters`** *(array)*: Parameters to pass to the method.
-- **`$retries`** *(int)*: Number of retry attempts if the job fails.
+* * * * *
 
----
-
-## Setup and Installation
+Setup and Installation
+----------------------
 
 ### Prerequisites
 
-- PHP 8.2+
-- Composer
-- Laravel CLI
+-   PHP 8.2+
+-   Composer
+-   Laravel CLI
+-   Node.js and npm
 
-### Cloning the Repository
+### Steps to Set Up the Project
 
-1. **Clone the repository**:
+1.  **Clone the Repository**:
 
-    ```bash
-    git clone place_holder_coming
-    cd your-repository-name
-    ```
+    `git clone https://github.com/dhehwa84/simon-custom-background-job-runner.git
+    cd simon-custom-background-job-runner`
 
-2. **Install dependencies**:
+2.  **Install PHP Dependencies**:
 
-    ```bash
-    composer install
-    ```
 
-3. **Configure Environment**:
+    `composer install`
 
-    - Copy `.env.example` to `.env`:
+3.  **Install Node Modules and Compile Assets**:
 
-      ```bash
-      cp .env.example .env
-      ```
+    `npm install`
 
-    - Update the `.env` file with any necessary configuration, especially `APP_KEY`, by running:
+    `npm run dev`
 
-      ```bash
-      php artisan key:generate
-      ```
+4.  **Configure Environment Variables**:
 
-4. **Database Setup**:
+    -   Copy `.env.example` to `.env`:
 
-    - This application uses an SQLite database by default for simplicity. Laravel will look for a `database/database.sqlite` file.
-    - Create an SQLite database file:
+        `cp .env.example .env`
 
-      ```bash
-      touch database/database.sqlite
-      ```
+    -   Update the `.env` file with necessary configurations, especially `APP_KEY`, by running:
 
-    - In your `.env` file, configure the database settings as follows:
+        `php artisan key:generate`
 
-      ```plaintext
-      DB_CONNECTION=sqlite
-      DB_DATABASE=/full/path/to/your-project/database/database.sqlite
-      ```
+5.  **Set Up the Database**:
 
-5. **Run Migrations**:
+    -   This application uses an SQLite database for simplicity. Create an SQLite file:
 
-    ```bash
-    php artisan migrate
-    ```
 
-### Running the Application
+        `touch database/database.sqlite`
 
-1. **Start the Laravel development server**:
+    -   Configure the database in the `.env` file:
 
-    ```bash
-    php artisan serve
-    ```
+        `DB_CONNECTION=sqlite
+        DB_DATABASE=database/database.sqlite`
 
-2. **Authentication with Laravel Breeze**:
+6.  **Run Migrations**:
 
-    - This application is set up with Laravel Breeze for basic authentication. After setting up the database, you can register users and access authenticated routes.
+    `php artisan migrate`
 
----
+7.  **Run the Application**:
 
-## Usage
+    `php artisan serve`
 
-### Running Background Jobs
+8.  **Run Queues with Priority**:
 
-The `runBackgroundJob` function takes four arguments:
+    To ensure jobs are processed in the order of priority, start the queue worker as follows:
 
-- **`$className`**: Fully qualified class name (e.g., `App\Jobs\SampleJob`).
-- **`$method`**: The method to execute within the class.
-- **`$parameters`**: Parameters to pass to the method.
-- **`$retries`**: Number of retry attempts if the job fails.
+    `php artisan queue:work --queue=high_priority,medium_priority,low_priority`
 
-#### Example Routes
+This command will process jobs in the `high_priority` queue first, then `medium_priority`, and finally `low_priority` if the higher priority queues are empty.
 
-1. **Basic Job Execution**:
+After setup, you can log in using the Laravel Breeze authentication or register a new account.
 
-    ```php
-    Route::get('/test-background-job', function () {
+* * * * *
+
+How the `runBackgroundJob` Function Works
+-----------------------------------------
+
+The `runBackgroundJob` function is a helper that initiates background jobs by dispatching them to the `BackgroundJobRunner`. This function accepts parameters like class name, method, parameters, and retry attempts, allowing you to run background tasks with configurable options.
+
+Usage
+-----
+
+### Running Background Jobs with the Helper Function
+
+The `runBackgroundJob` function allows you to run background jobs by specifying the class name, method, parameters, and retry attempts.
+
+#### Example Usage
+
+1.  **Basic Job Execution**:
+
+    `Route::get('/test-background-job', function () {
         runBackgroundJob('App\Jobs\SampleJob', 'execute', ['Hello, Background Job!'], 3);
         return 'Background job dispatched!';
-    });
-    ```
+    });`
 
----
+### Using the Dashboard
 
-## Configuration
+Navigate to `/dashboard` to view, monitor, and manage all dispatched background jobs. The dashboard displays job details such as class name, method, parameters, status, retry count, and priority.
+
+* * * * *
+
+Configuration
+-------------
 
 ### Retry Attempts and Delays
 
-1. **Retry Attempts**:
-   - Specify retry attempts using the `$retries` parameter:
+-   **Retry Attempts**: You can specify the number of retry attempts by setting the `$retries` parameter in `runBackgroundJob`.
 
-     ```php
-     runBackgroundJob('App\Jobs\SampleJob', 'execute', ['Hello, Background Job!'], 5);
-     ```
-     This job will retry up to 5 times if it encounters an error.
-
-2. **Delay Between Retries**:
-   - A 5-second delay is set between retries in `BackgroundJobRunner`. Adjust this by modifying `sleep(5);` in the `run` method.
+-   **Delay Between Retries**: The `BackgroundJobRunner` includes a delay setting between retries. Modify the delay duration by setting `$retryDelay` in the helper function.
 
 ### Security Settings
 
-To prevent unauthorized jobs from running:
+To restrict jobs to authorized classes only, add allowed classes in `config/background_jobs.php`:
 
-- **Allowed Classes**: Define an `allowed_classes` array in `config/background_jobs.php`:
+`return [
+    'allowed_classes' => [
+        'App\Jobs\SampleJob',
+        'App\Jobs\OrderJob',
+    ],
+];`
 
-    ```php
-    return [
-        'allowed_classes' => [
-            'App\Jobs\SampleJob',
-            'App\Jobs\OrderJob',
-        ],
-    ];
-    ```
+This validation prevents unauthorized classes from being executed as background jobs.
 
-- **Validation**: The system validates `$className` and `$method` to ensure they exist and are approved.
+* * * * *
 
----
+Logging and Error Handling
+--------------------------
 
-## Logging and Error Handling
+Each job is logged at different stages:
 
-Each job execution is logged with details:
-
-- **Running**: Logged when the job starts.
-- **Success**: Logged upon completion.
-- **Failure**: Logs include error messages and details.
-
-Each log entry contains:
-
-- **Class name**
-- **Method name**
-- **Parameters**
-- **Status** (running, completed, failed)
-- **Timestamp**
+-   **Running**: Logged when the job starts.
+-   **Success**: Logged upon successful completion.
+-   **Failure**: Logs include error details and the retry count.
 
 ### Example Log Entries
 
-```plaintext
-Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: {"param1":"Hello, Background Job!"} | Timestamp: 2024-11-12 12:00:00
-```
 
-```
-Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: {"param1":"Hello, Background Job!"} | Timestamp: 2024-11-12 12:00:05
-```
+`Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: {"param1":"Hello, Background Job!"} | Timestamp: 2024-11-12 12:00:00`
+
+`Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: {"param1":"Hello, Background Job!"} | Timestamp: 2024-11-12 12:00:05`
+
+### Job Dashboard Logging
+
+You can view job statuses, retry counts, and error messages directly on the dashboard at `/dashboard`.
+
+* * * * *
 
 Running Test Cases
 ------------------
 
-### Running the Tests
+### Running Tests
 
-To run all tests in the application, use:
+To run all tests in the application:
 
 `php artisan test`
 
-Alternatively, you can run PHPUnit directly:
-
+or run PHPUnit directly:
 
 `vendor/bin/phpunit`
 
 ### Test Files for `BackgroundJobRunner`
 
--   **Feature Tests**: Located in `tests/Feature/BackgroundJobRunnerTest.php`. These tests check the integration of the job runner with the Laravel environment, including logging and retry functionality.
--   **Unit Tests**: Located in `tests/Unit/BackgroundJobRunnerUnitTest.php`. These tests focus on the isolated behavior of the `BackgroundJobRunner` class, validating individual methods and responses.
+-   **Feature Tests**: Located in `tests/Feature/BackgroundJobRunnerTest.php`.
+-   **Unit Tests**: Located in `tests/Unit/BackgroundJobRunnerUnitTest.php`.
 
 ### Example Test Cases
 
-1.  **Feature Test** (`BackgroundJobRunnerTest.php`):
+1.  **Feature Test** (`BackgroundJobRunnerTest.php`): Verifies integration with Laravel.
+2.  **Unit Test** (`BackgroundJobRunnerUnitTest.php`): Validates the behavior of `BackgroundJobRunner`.
 
-    -   Runs approved jobs and logs success.
-    -   Prevents unapproved jobs from executing.
-    -   Retries jobs on failure and logs each attempt.
-2.  **Unit Test** (`BackgroundJobRunnerUnitTest.php`):
+* * * * *
 
-    -   Logs success when the job completes successfully.
-    -   Logs error details when a job fails.
-    -   Prevents unauthorized job classes from executing.
+Job Dashboard
+-------------
 
-These tests ensure that the `BackgroundJobRunner` behaves as expected under various scenarios.
+The job dashboard provides a web interface to monitor and manage background jobs. Key functionalities include:
+
+-   **View Job Status**: Displays jobs and their statuses (running, completed, failed).
+-   **Retry Count**: Shows the number of retry attempts.
+-   **Cancel Jobs**: Allows you to cancel running jobs.
+-   **Job Priority**: High-priority jobs execute before lower-priority ones.
 
 * * * * *
 
@@ -230,16 +216,16 @@ Assumptions, Limitations, and Potential Improvements
 
 ### Assumptions
 
--   Classes and methods provided for background jobs are approved and defined in `config/background_jobs.php`.
--   A default 5-second delay is sufficient for retries.
+-   All classes and methods are pre-approved in `config/background_jobs.php`.
 
 ### Limitations
 
--   **Delay Control**: The retry delay is hardcoded. To support flexible delays, consider moving delay times to the configuration file.
--   **Priority Handling**: Currently, there's no built-in priority processing in `BackgroundJobRunner`.
+-   **Fixed Delay Control**: Delay between retries is set manually.
+-   **Priority Handling**: Limited prioritization of jobs.
 
 ### Potential Improvements
 
-1.  **Enhanced Job Dashboard**: A frontend dashboard could provide a real-time view of job status, including logs and error details.
-2.  **Flexible Delay Configuration**: Allow configurable delays by adding a `retry_delay` setting in `config/background_jobs.php`.
-3.  **Prioritized Job Queue**: Implement priority handling to ensure high-priority jobs execute first.
+1.  **Enhanced Dashboard**: Add real-time monitoring and filtering options.
+2.  **Advanced Priority Queue**: Enable more granular job prioritization.
+
+* * * * *

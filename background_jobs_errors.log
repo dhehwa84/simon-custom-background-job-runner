@@ -1,0 +1,297 @@
+[2024-11-11 20:47:15] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-11 20:47:15] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-11 20:47:20] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-11 20:47:20] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-11 20:47:25] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-11 20:47:25] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-11 20:47:30] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-11 20:47:30] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-12 17:28:10] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:28:27] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:28:27] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-12 17:28:32] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:28:32] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-12 17:28:37] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:28:37] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-12 17:28:42] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:28:42] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request  
+[2024-11-12 17:33:26] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:33:26] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:33:31] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:33:31] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:33:36] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:33:36] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:33:41] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:33:41] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:38:47] local.INFO: Job running: App\Jobs\SampleJob::execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 17:38:47  
+[2024-11-12 17:38:47] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:38:47] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:38:52] local.INFO: Job running: App\Jobs\SampleJob::execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 17:38:52  
+[2024-11-12 17:38:52] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:38:52] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:38:57] local.INFO: Job running: App\Jobs\SampleJob::execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 17:38:57  
+[2024-11-12 17:38:57] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:38:57] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:39:02] local.INFO: Job running: App\Jobs\SampleJob::execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 17:39:02  
+[2024-11-12 17:39:02] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:39:02] local.INFO: Job failed: App\Jobs\SampleJob::execute - Error: Error Processing Request | Parameters: ["Hello, Background Job!"]  
+[2024-11-12 17:58:02] local.ERROR: Unauthorized class attempted to run: App\Jobs\SampleJob  
+[2024-11-12 17:59:10] local.ERROR: Unauthorized class attempted to run: App\Jobs\SampleJob  
+[2024-11-12 17:59:36] local.INFO: Job running: App\Jobs\SampleJob::execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 17:59:36  
+[2024-11-12 17:59:37] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 17:59:38] local.INFO: Job executed successfully: App\Jobs\SampleJob::execute - Success | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 17:59:38  
+[2024-11-12 18:02:49] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:02:49  
+[2024-11-12 18:02:49] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 18:02:49] local.INFO: Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:02:49  
+[2024-11-12 18:03:34] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:03:34  
+[2024-11-12 18:03:34] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 18:03:34] local.INFO: Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:03:34  
+[2024-11-12 18:03:43] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:03:43  
+[2024-11-12 18:03:43] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 18:03:43] local.INFO: Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:03:43  
+[2024-11-12 18:04:20] local.ERROR: Class App\Jobs\SampleJob1 not found.  
+[2024-11-12 18:06:56] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:06:56  
+[2024-11-12 18:06:56] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-12 18:06:56] local.INFO: Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:06:56  
+[2024-11-12 18:07:13] local.ERROR: Class App\Jobs\SampleJob1 not found.  
+[2024-11-12 18:08:43] local.ERROR: Class App\Jobs\SampleJob1 not found.  
+[2024-11-12 18:08:57] local.ERROR: Unauthorized class attempted to run | Class: App\Jobs\SampleJob1 | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-12 18:08:57  
+[2024-11-12 20:53:12] local.ERROR: Unauthorized class attempted to run | Class: App\Jobs\SampleJob2 | Method: execute | Parameters: [] | Timestamp: 2024-11-12 20:53:12  
+[2024-11-12 20:53:57] local.ERROR: Unauthorized class attempted to run | Class: App\Jobs\SampleJob2 | Method: execute | Parameters: [] | Timestamp: 2024-11-12 20:53:57  
+[2024-11-12 20:55:35] local.ERROR: Unauthorized class attempted to run | Class: App\Jobs\SampleJob2 | Method: execute | Parameters: [] | Timestamp: 2024-11-12 20:55:35  
+[2024-11-13 16:33:39] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 16:34:52] local.ERROR: Unauthorized class attempted to run | Class: App\Jobs\SampleJob2 | Method: execute | Parameters: [] | Timestamp: 2024-11-13 16:34:52  
+[2024-11-13 17:02:52] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:03:16] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:03:28] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:04:25] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:04:34] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:05:25] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:06:34] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:07:11] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:11:32] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:12:26] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:13:29] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:16:26] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:16:26  
+[2024-11-13 17:16:31] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:16:32] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:16:32  
+[2024-11-13 17:17:56] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:17:56  
+[2024-11-13 17:17:58] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:17:58] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:17:58  
+[2024-11-13 17:21:26] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:21:26  
+[2024-11-13 17:21:28] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:21:36] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:21:36  
+[2024-11-13 17:22:51] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:22:51  
+[2024-11-13 17:22:53] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:22:56] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:22:56  
+[2024-11-13 17:26:24] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:26:24  
+[2024-11-13 17:26:29] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:26:29] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:26:29  
+[2024-11-13 17:26:29] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:26:29  
+[2024-11-13 17:26:30] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:26:30] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:26:30  
+[2024-11-13 17:26:30] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:26:30  
+[2024-11-13 17:26:31] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:26:31] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:26:31  
+[2024-11-13 17:27:17] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:27:17  
+[2024-11-13 17:27:17] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:27:17] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:27:17  
+[2024-11-13 17:27:17] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:27:17  
+[2024-11-13 17:27:17] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:27:17] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:27:17  
+[2024-11-13 17:27:17] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:27:17  
+[2024-11-13 17:27:17] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:27:17] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:27:17  
+[2024-11-13 17:27:56] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:27:56  
+[2024-11-13 17:27:56] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:27:56] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:27:56  
+[2024-11-13 17:27:56] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:27:56  
+[2024-11-13 17:27:56] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:27:56] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:27:56  
+[2024-11-13 17:27:56] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:27:56  
+[2024-11-13 17:27:56] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:27:56] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:27:56  
+[2024-11-13 17:37:14] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:37:14  
+[2024-11-13 17:37:14] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:37:14] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:37:14  
+[2024-11-13 17:37:14] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:37:14  
+[2024-11-13 17:37:14] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:37:14] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:37:14  
+[2024-11-13 17:37:14] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:37:14  
+[2024-11-13 17:37:14] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:37:14] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:37:14  
+[2024-11-13 17:41:15] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:41:15  
+[2024-11-13 17:41:15] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:41:15] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:41:15  
+[2024-11-13 17:41:15] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:41:15  
+[2024-11-13 17:41:15] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:41:15] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:41:15  
+[2024-11-13 17:41:15] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:41:15  
+[2024-11-13 17:41:15] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:41:15] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:41:15  
+[2024-11-13 17:47:03] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:47:03  
+[2024-11-13 17:47:03] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:47:03] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:47:03  
+[2024-11-13 17:47:03] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:47:03  
+[2024-11-13 17:47:03] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:47:03] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:47:03  
+[2024-11-13 17:47:03] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:47:03  
+[2024-11-13 17:47:03] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:47:03] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:47:03  
+[2024-11-13 17:48:15] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:48:15  
+[2024-11-13 17:48:15] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:48:15] local.ERROR: Job failed after max retries | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:48:15  
+[2024-11-13 17:51:10] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:51:10  
+[2024-11-13 17:51:10] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:51:10] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:51:10  
+[2024-11-13 17:51:10] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:51:10  
+[2024-11-13 17:51:10] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:51:10] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:51:10  
+[2024-11-13 17:51:10] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:51:10  
+[2024-11-13 17:51:10] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:51:10] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:51:10  
+[2024-11-13 17:54:58] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:54:58  
+[2024-11-13 17:54:58] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:54:58] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:54:58  
+[2024-11-13 17:55:04] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:55:04  
+[2024-11-13 17:55:04] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:55:04] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:55:04  
+[2024-11-13 17:55:11] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:55:11  
+[2024-11-13 17:55:11] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:55:11] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:55:11  
+[2024-11-13 17:57:29] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:57:29  
+[2024-11-13 17:57:29] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:57:29] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:57:29  
+[2024-11-13 17:58:17] local.ERROR: Unauthorized or invalid job class/method | Class: App\Jobs\SampleJobs | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:58:17  
+[2024-11-13 17:59:05] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 17:59:05  
+[2024-11-13 17:59:05] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 17:59:05] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 17:59:05  
+[2024-11-13 18:00:23] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:00:23  
+[2024-11-13 18:00:23] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:00:23] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:00:23  
+[2024-11-13 18:01:41] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:01:41  
+[2024-11-13 18:01:46] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:01:55] local.INFO: Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:01:55  
+[2024-11-13 18:02:44] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:02:44  
+[2024-11-13 18:02:47] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:02:58] local.INFO: Job completed successfully | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:02:58  
+[2024-11-13 18:03:49] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:03:49  
+[2024-11-13 18:03:52] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:04:00] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:04:00  
+[2024-11-13 18:10:12] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:10:12  
+[2024-11-13 18:10:12] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:10:12] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:10:12  
+[2024-11-13 18:10:18] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:10:18  
+[2024-11-13 18:10:18] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:10:18] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:10:18  
+[2024-11-13 18:10:24] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:10:24  
+[2024-11-13 18:10:24] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:10:24] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:10:24  
+[2024-11-13 18:10:30] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:10:30  
+[2024-11-13 18:10:30] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:10:30] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:10:30  
+[2024-11-13 18:11:09] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:11:09  
+[2024-11-13 18:11:09] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:11:09] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:11:09  
+[2024-11-13 18:11:16] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:11:16  
+[2024-11-13 18:11:16] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:11:16] local.ERROR: Job failed and will retry | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:11:16  
+[2024-11-13 18:11:36] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:11:36  
+[2024-11-13 18:11:39] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:11:39] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:11:39  
+[2024-11-13 18:12:02] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:12:02  
+[2024-11-13 18:12:03] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:12:03] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:12:03  
+[2024-11-13 18:12:13] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:12:13  
+[2024-11-13 18:12:14] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:12:14] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:12:14  
+[2024-11-13 18:13:07] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:13:07  
+[2024-11-13 18:13:07] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:13:07] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:13:07  
+[2024-11-13 18:13:13] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:13:13  
+[2024-11-13 18:13:13] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:13:13] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:13:13  
+[2024-11-13 18:13:19] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:13:19  
+[2024-11-13 18:13:19] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:13:19] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:13:19  
+[2024-11-13 18:13:25] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:13:25  
+[2024-11-13 18:13:25] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:13:25] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:13:25  
+[2024-11-13 18:13:31] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:13:31  
+[2024-11-13 18:13:31] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:13:31] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:13:31  
+[2024-11-13 18:13:37] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:13:37  
+[2024-11-13 18:13:37] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:13:37] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:13:37  
+[2024-11-13 18:14:16] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:16  
+[2024-11-13 18:14:16] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:16] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:16  
+[2024-11-13 18:14:23] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:23  
+[2024-11-13 18:14:23] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:23] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:23  
+[2024-11-13 18:14:23] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:23  
+[2024-11-13 18:14:23] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:23] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:23  
+[2024-11-13 18:14:29] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:29  
+[2024-11-13 18:14:29] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:29] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:29  
+[2024-11-13 18:14:29] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:29  
+[2024-11-13 18:14:29] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:29] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:29  
+[2024-11-13 18:14:35] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:35  
+[2024-11-13 18:14:35] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:35] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:35  
+[2024-11-13 18:14:35] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:35  
+[2024-11-13 18:14:35] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:35] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:35  
+[2024-11-13 18:14:41] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:41  
+[2024-11-13 18:14:41] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:41] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:41  
+[2024-11-13 18:14:47] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:47  
+[2024-11-13 18:14:47] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:47] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:47  
+[2024-11-13 18:14:53] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:14:53  
+[2024-11-13 18:14:53] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:14:53] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:14:53  
+[2024-11-13 18:34:28] local.ERROR: Unauthorized or invalid job class/method | Class: App\Jobs\SampleJob1 | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:34:28  
+[2024-11-13 18:34:47] local.ERROR: Unauthorized or invalid job class/method | Class: App\Jobs\SampleJob1 | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:34:47  
+[2024-11-13 18:35:52] local.ERROR: Unauthorized or invalid job class/method | Class: App\Jobs\SampleJob1 | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:35:52  
+[2024-11-13 18:38:06] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:06  
+[2024-11-13 18:38:06] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-13 18:38:06] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:06  
+[2024-11-13 18:38:12] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:12  
+[2024-11-13 18:38:12] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-13 18:38:12] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:12  
+[2024-11-13 18:38:18] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:18  
+[2024-11-13 18:38:18] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-13 18:38:18] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:18  
+[2024-11-13 18:38:51] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:51  
+[2024-11-13 18:38:51] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-13 18:38:51] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:51  
+[2024-11-13 18:38:54] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:38:54  
+[2024-11-13 18:38:54] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:38:54] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:38:54  
+[2024-11-13 18:38:57] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:57  
+[2024-11-13 18:38:57] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-13 18:38:57] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:38:57  
+[2024-11-13 18:39:00] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:39:00  
+[2024-11-13 18:39:00] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:39:00] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:39:00  
+[2024-11-13 18:39:03] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:39:03  
+[2024-11-13 18:39:03] local.INFO: Executing SampleJob with message: Hello, Background Job!  
+[2024-11-13 18:39:03] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: ["Hello, Background Job!"] | Timestamp: 2024-11-13 18:39:03  
+[2024-11-13 18:39:07] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:39:07  
+[2024-11-13 18:39:07] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:39:07] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:39:07  
+[2024-11-13 18:39:13] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:39:13  
+[2024-11-13 18:39:13] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:39:13] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:39:13  
+[2024-11-13 18:39:19] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:39:19  
+[2024-11-13 18:39:19] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:39:19] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:39:19  
+[2024-11-13 18:48:13] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:48:13  
+[2024-11-13 18:48:13] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:48:13] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:48:13  
+[2024-11-13 18:48:19] local.INFO: Job running | Class: App\Jobs\SampleJob | Method: execute | Parameters: [] | Timestamp: 2024-11-13 18:48:19  
+[2024-11-13 18:48:19] local.INFO: Executing SampleJob with message: Not given!  
+[2024-11-13 18:48:19] local.ERROR: Job failed and will retry automatically | Class: App\Jobs\SampleJob | Method: execute | Error: Error Processing Request | Parameters: [] | Timestamp: 2024-11-13 18:48:19  

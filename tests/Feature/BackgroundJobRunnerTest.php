@@ -3,90 +3,129 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\BackgroundJobRunner;
-use App\Jobs\SampleJob;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Config;
-use Mockery;
+use Illuminate\Support\Facades\Queue;
+use App\Jobs\ExecuteBackgroundJob;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 
 class BackgroundJobRunnerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Set up the test environment.
      *
      * This method is called before each test case and is used to reset the state of the application
-     * and prepare it for testing. It also spies on the log to assert log messages.
+     * and prepare it for testing. It configures the notification, CSRF middleware, queue, and logging
+     * for the test environment.
      *
      * @return void
      */
     public function setUp(): void
     {
         parent::setUp();
-        Log::spy(); // Spy on the log to assert log messages
+
+        // Fake the notification
+        Notification::fake();
+
+        // Disable CSRF for testing
+        $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+
+        Queue::fake();
+        Log::shouldReceive('channel')->andReturnSelf();
     }
 
     /**
-     * This test case verifies that an approved job is successfully run by the BackgroundJobRunner.
+     * This test case verifies that an approved job is dispatched correctly.
      *
      * @return void
      */
-    public function it_runs_an_approved_job_successfully()
+    public function it_dispatches_an_approved_job()
     {
-        // Configure allowed classes to include SampleJob
-        Config::set('background_jobs.allowed_classes', [SampleJob::class]);
+        // Set up the allowed job classes for testing
+        config(['background_jobs.allowed_classes' => [
+            'App\Jobs\SampleJob'
+        ]]);
 
-        // Mock the SampleJob class and expect 'execute' method to be called once
-        $jobMock = Mockery::mock(SampleJob::class);
-        $jobMock->shouldReceive('execute')->once();
+        // Define the job details
+        $className = 'App\Jobs\SampleJob';
+        $method = 'execute';
+        $parameters = ['param1' => 'value1'];
 
-        // Run the job with the specified class, method, and parameters
-        BackgroundJobRunner::run(SampleJob::class, 'execute', ['Hello, Test!']);
+        // Set up expectations for logging
+        Log::shouldReceive('info')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Job running');
+        });
 
-        // Assert that the job logs a successful run message
-        Log::shouldHaveReceived('info')->withArgs(function ($message) {
-            return str_contains($message, 'Job executed successfully');
+        // Dispatch the job using the BackgroundJobRunner
+        \App\BackgroundJobRunner::dispatch($className, $method, $parameters, 3, 0, 1);
+
+        // Verify that the job was pushed to the queue with the correct details
+        Queue::assertPushed(ExecuteBackgroundJob::class, function ($job) use ($className, $method, $parameters) {
+            return $job->className === $className &&
+                   $job->method === $method &&
+                   $job->parameters === $parameters;
         });
     }
 
     /**
-     * This test case verifies that an unapproved job is not run by the BackgroundJobRunner.
+     * This test case verifies that an unapproved job is not dispatched.
      *
      * @return void
      */
-    public function it_does_not_run_unapproved_jobs()
+    public function it_does_not_dispatch_unapproved_job()
     {
-        // Configure allowed classes to exclude SampleJob
-        Config::set('background_jobs.allowed_classes', []);
+        // Set up the allowed job classes for testing
+        config(['background_jobs.allowed_classes' => [
+            'App\Jobs\AllowedJob'
+        ]]);
 
-        // Run the job with the specified class, method, and parameters
-        BackgroundJobRunner::run(SampleJob::class, 'execute', ['Hello, Test!']);
+        // Define the job details
+        $className = 'App\Jobs\UnapprovedJob';
+        $method = 'execute';
+        $parameters = ['param1' => 'value1'];
 
-        // Assert that an unauthorized log message is generated
-        Log::shouldHaveReceived('error')->withArgs(function ($message) {
-            return str_contains($message, 'Unauthorized class attempted to run');
+        // Set up expectations for logging
+        Log::shouldReceive('error')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Unauthorized or invalid job class/method');
         });
+
+        // Dispatch the job using the BackgroundJobRunner
+        \App\BackgroundJobRunner::dispatch($className, $method, $parameters, 3, 0, 1);
+
+        // Verify that the job was not pushed to the queue
+        Queue::assertNotPushed(ExecuteBackgroundJob::class);
     }
 
     /**
-     * This test case verifies that the BackgroundJobRunner retries a failed job.
+     * This test case verifies that a failed job is retried with a delay.
      *
      * @return void
      */
-    public function it_retries_on_failure()
+    public function it_retries_failed_job_with_delay()
     {
-        // Configure allowed classes to include SampleJob
-        Config::set('background_jobs.allowed_classes', [SampleJob::class]);
+        // Set up the allowed job classes for testing
+        config(['background_jobs.allowed_classes' => [
+            'App\Jobs\SampleJob'
+        ]]);
 
-        // Mock the SampleJob class and force it to throw an exception on execution
-        $jobMock = Mockery::mock(SampleJob::class);
-        $jobMock->shouldReceive('execute')->andThrow(new \Exception('Simulated failure'));
+        // Define the job details
+        $className = 'App\Jobs\SampleJob';
+        $method = 'execute';
+        $parameters = ['param1' => 'value1'];
 
-        // Run the job with retries
-        BackgroundJobRunner::run(SampleJob::class, 'execute', ['Hello, Test!'], 2);
+        // Set up expectations for logging
+        // We expect an error log to be recorded 3 times
+        Log::shouldReceive('error')->times(3);
 
-        // Assert that error log was called multiple times due to retries
-        Log::shouldHaveReceived('error')->withArgs(function ($message) {
-            return str_contains($message, 'Job failed');
-        })->times(3); // Initial attempt + 2 retries
+        // Dispatch the job using the BackgroundJobRunner
+        // The job should be retried 3 times with a delay of 5 seconds between retries
+        \App\BackgroundJobRunner::dispatch($className, $method, $parameters, 3, 5, 1);
+
+        // Verify that the job was pushed to the queue with the correct retry and backoff settings
+        Queue::assertPushed(ExecuteBackgroundJob::class, function ($job) {
+            return $job->retries === 3 && $job->backoff === 5;
+        });
     }
 }

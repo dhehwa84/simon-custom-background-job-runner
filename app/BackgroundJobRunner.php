@@ -1,67 +1,46 @@
 <?php
+
 namespace App;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Config;
+use App\Jobs\ExecuteBackgroundJob;
 
 class BackgroundJobRunner
 {
     
     /**
-     * Runs a background job by creating an instance of the specified class, validating the class and method,
-     * and logging the job's status. If the job fails, it will retry up to the specified number of times.
+     * Dispatches a background job to the appropriate queue based on priority.
      *
-     * @param string $className The fully qualified name of the class to run the job.
-     * @param string $method The name of the method to call within the class.
-     * @param array $parameters An optional array of parameters to pass to the method.
-     * @param int $retries The number of times to retry the job in case of failure. Default is 3.
+     * @param string $className The fully qualified name of the job class.
+     * @param string $method The method to be executed within the job class.
+     * @param array $parameters An optional array of parameters to be passed to the job method.
+     * @param int $retries The number of times the job should be retried in case of failure. Default is 3.
+     * @param int $delay The delay in seconds before the job should be dispatched. Default is 0.
+     * @param int $priority The priority of the job. Higher values indicate higher priority. Default is 0.
      *
      * @return void
      */
-    public static function run($className, $method, $parameters = [], $retries = 3)
+    public static function dispatch($className, $method, $parameters = [], $retries = 3, $delay = 0, $priority = 0)
     {
-        // Load the allowed classes from config
-        $allowedClasses = config('background_jobs.allowed_classes', []);
-
-        // Validate class name
-        if (!in_array($className, $allowedClasses)) {
-            Log::channel('background_jobs_errors')->error("Unauthorized class attempted to run | Class: {$className} | Method: {$method} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
+        // Check if the class and method are allowed and exist
+        $allowedClasses = Config::get('background_jobs.allowed_classes', []);
+        if (!in_array($className, $allowedClasses) || !class_exists($className) || !method_exists($className, $method)) {
+            Log::channel('background_jobs_errors')->error("Unauthorized or invalid job class/method | Class: {$className} | Method: {$method} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
             return;
         }
 
-        // Ensure the class exists
-        if (!class_exists($className)) {
-            Log::channel('background_jobs_errors')->error("Class does not exist | Class: {$className} | Method: {$method} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
-            return;
-        }
+        // Determine queue based on priority
+        $queue = match($priority) {
+            3 => 'high_priority',
+            2 => 'medium_priority',
+            default => 'low_priority',
+        };
 
-        // Validate method name
-        if (!method_exists($className, $method)) {
-            Log::channel('background_jobs_errors')->error("Method does not exist in class | Class: {$className} | Method: {$method} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
-            return;
-        }
-
-        try {
-            // Create an instance of the approved class
-            $instance = new $className();
-
-            // Log the "running" status
-            Log::channel('background_jobs_errors')->info("Job running | Class: " . get_class($instance) . " | Method: {$method} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
-
-            // Call the specified method with the provided parameters
-            call_user_func_array([$instance, $method], $parameters);
-
-            // Log success status
-            Log::channel('background_jobs_errors')->info("Job completed successfully | Class: " . get_class($instance) . " | Method: {$method} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
-        } catch (\Exception $e) {
-            // Log failure status
-            Log::channel('background_jobs_errors')->error("Job failed | Class: " . get_class($instance) . " | Method: {$method} | Error: {$e->getMessage()} | Parameters: " . json_encode($parameters) . " | Timestamp: " . now());
-
-            // Retry logic if retries are still available
-            if ($retries > 0) {
-                sleep(5); // Retry delay
-                self::run($className, $method, $parameters, $retries - 1);
-            }
-        }
+        // Dispatch job to the appropriate queue with delay
+        ExecuteBackgroundJob::dispatch($className, $method, $parameters, $retries, $priority)
+            ->delay($delay)
+            ->onQueue($queue);
     }
+    
 }
-

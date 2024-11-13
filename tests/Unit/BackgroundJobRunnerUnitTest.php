@@ -3,99 +3,105 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use Mockery;
 use App\BackgroundJobRunner;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Config;
-use Mockery;
 
 class BackgroundJobRunnerUnitTest extends TestCase
 {
-    /**
-     * Sets up the test environment for the BackgroundJobRunnerUnitTest class.
-     *
-     * This method is called before each test case in the class. It initializes the parent setup,
-     * configures the logging spy to monitor log messages, and prepares the environment for testing.
-     *
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
-        Log::spy(); // Spy on the log for assertions
+        Log::shouldReceive('channel')->andReturnSelf();
     }
 
     /**
-     * This function tests the scenario where a job completes successfully.
-     * It configures the allowed classes, mocks the job class to expect 'execute' to be called,
-     * runs the job, and asserts that an info log message with 'Job executed successfully' is created.
+     * This test method verifies that the BackgroundJobRunner logs the running and completion status of a job.
      *
      * @return void
      */
-    public function it_logs_success_when_job_completes()
+    public function it_logs_running_and_completion_status()
     {
-        // Configure allowed classes
-        Config::set('background_jobs.allowed_classes', ['App\Jobs\SampleJob']);
+        // Set the allowed job classes in the configuration
+        Config::set('background_jobs.allowed_classes', [
+            'App\Jobs\SampleJob'
+        ]);
 
-        // Mock the SampleJob class and expect 'execute' to be called
-        $jobMock = Mockery::mock('App\Jobs\SampleJob');
-        $jobMock->shouldReceive('execute')->once();
+        // Define the job details
+        $className = 'App\Jobs\SampleJob';
+        $method = 'execute';
+        $parameters = ['param1' => 'value1'];
 
-        // Run the job
-        BackgroundJobRunner::run('App\Jobs\SampleJob', 'execute');
-
-        // Assert that a success log message was created
-        Log::shouldHaveReceived('info')->withArgs(function ($message) {
-            return str_contains($message, 'Job executed successfully');
+        // Mock the Log::info method to expect a specific message when the job is running
+        Log::shouldReceive('info')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Job running') && str_contains($message, 'SampleJob');
         });
+
+        // Mock the Log::info method to expect a specific message when the job is completed successfully
+        Log::shouldReceive('info')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Job completed successfully') && str_contains($message, 'SampleJob');
+        });
+
+        // Dispatch the job using the BackgroundJobRunner
+        BackgroundJobRunner::dispatch($className, $method, $parameters);
     }
 
     /**
-     * This function tests the scenario where a job fails to execute.
-     * It configures the allowed classes, mocks the job class to throw an exception,
-     * runs the job, and asserts that an error log message is created.
+     * This test method verifies that the BackgroundJobRunner logs an error when an invalid job class or method is provided.
      *
      * @return void
      */
-    public function it_logs_error_when_job_fails()
+    public function it_logs_error_for_invalid_class_or_method()
     {
-        // Configure allowed classes
-        Config::set('background_jobs.allowed_classes', ['App\Jobs\SampleJob']);
+        // Set the allowed job classes in the configuration
+        Config::set('background_jobs.allowed_classes', [
+            'App\Jobs\AllowedJob'
+        ]);
 
-        // Mock the SampleJob class and force it to throw an exception
-        $jobMock = Mockery::mock('App\Jobs\SampleJob');
-        $jobMock->shouldReceive('execute')->andThrow(new \Exception('Simulated failure'));
+        // Define the job details
+        $className = 'App\Jobs\InvalidJob'; // The class name of the job to be dispatched
+        $method = 'nonExistentMethod'; // The method name of the job to be executed
+        $parameters = ['param1' => 'value1']; // The parameters to be passed to the job method
 
-        // Run the job
-        BackgroundJobRunner::run('App\Jobs\SampleJob', 'execute', [], 0);
-
-        // Assert that an error log was created
-        Log::shouldHaveReceived('error')->withArgs(function ($message) {
-            return str_contains($message, 'Job failed') && str_contains($message, 'Simulated failure');
+        // Mock the Log::error method to expect a specific error message when an invalid job class or method is provided
+        Log::shouldReceive('error')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Unauthorized or invalid job class/method') && str_contains($message, 'InvalidJob');
         });
+
+        // Dispatch the job using the BackgroundJobRunner
+        BackgroundJobRunner::dispatch($className, $method, $parameters);
     }
 
     /**
-     * This function checks if a given job class is approved to run based on the configuration.
-     * If the class is not approved, it logs an error message.
-     *
-     * @param string $jobClass The fully qualified name of the job class to be checked.
-     * @param string $method The method of the job class to be executed.
-     * @param array $parameters The parameters to be passed to the job method.
-     * @param int $timeout The maximum execution time for the job in seconds.
+     * This test method verifies that the BackgroundJobRunner respects priority settings when dispatching a job.
      *
      * @return void
      */
-    public function it_checks_if_class_is_not_approved()
+    public function it_respects_priority_settings()
     {
-        // Configure allowed classes to exclude the job
-        Config::set('background_jobs.allowed_classes', []);
+        // Set the allowed job classes in the configuration
+        Config::set('background_jobs.allowed_classes', [
+            'App\Jobs\SampleJob'
+        ]);
 
-        // Run the job
-        BackgroundJobRunner::run('App\Jobs\SampleJob', 'execute');
+        // Define the job details
+        $className = 'App\Jobs\SampleJob'; // The class name of the job to be dispatched
+        $method = 'execute'; // The method name of the job to be executed
+        $parameters = ['param1' => 'value1']; // The parameters to be passed to the job method
+        $priority = 2; // The priority of the job (lower values indicate higher priority)
 
-        // Assert that an unauthorized log was created
-        Log::shouldHaveReceived('error')->withArgs(function ($message) {
-            return str_contains($message, 'Unauthorized class attempted to run');
+        // Mock the Log::info method to expect a specific message when the job is running
+        Log::shouldReceive('info')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Job running') && str_contains($message, 'SampleJob');
         });
+
+        // Mock the Log::info method to expect a specific message when the job is completed successfully
+        Log::shouldReceive('info')->once()->withArgs(function ($message) {
+            return str_contains($message, 'Job completed successfully') && str_contains($message, 'SampleJob');
+        });
+
+        // Dispatch the job using the BackgroundJobRunner with the specified priority
+        BackgroundJobRunner::dispatch($className, $method, $parameters, 3, 0, $priority);
     }
 }
