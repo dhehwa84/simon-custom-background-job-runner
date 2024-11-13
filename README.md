@@ -46,8 +46,8 @@ Setup and Installation
 1.  **Clone the Repository**:
 
     `git clone https://github.com/dhehwa84/simon-custom-background-job-runner.git`
-    `
-    cd simon-custom-background-job-runner`
+    
+    `cd simon-custom-background-job-runner`
 
 3.  **Install PHP Dependencies**:
 
@@ -79,8 +79,7 @@ Setup and Installation
 
     -   Configure the database in the `.env` file:
 
-        `DB_CONNECTION=sqlite
-        DB_DATABASE=database/database.sqlite`
+        `DB_CONNECTION=sqlite`
 
 7.  **Run Migrations**:
 
