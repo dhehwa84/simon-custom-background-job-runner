@@ -45,21 +45,22 @@ Setup and Installation
 
 1.  **Clone the Repository**:
 
-    `git clone https://github.com/dhehwa84/simon-custom-background-job-runner.git
+    `git clone https://github.com/dhehwa84/simon-custom-background-job-runner.git`
+    `
     cd simon-custom-background-job-runner`
 
-2.  **Install PHP Dependencies**:
+3.  **Install PHP Dependencies**:
 
 
     `composer install`
 
-3.  **Install Node Modules and Compile Assets**:
+4.  **Install Node Modules and Compile Assets**:
 
     `npm install`
 
     `npm run dev`
 
-4.  **Configure Environment Variables**:
+5.  **Configure Environment Variables**:
 
     -   Copy `.env.example` to `.env`:
 
@@ -69,7 +70,7 @@ Setup and Installation
 
         `php artisan key:generate`
 
-5.  **Set Up the Database**:
+6.  **Set Up the Database**:
 
     -   This application uses an SQLite database for simplicity. Create an SQLite file:
 
@@ -81,15 +82,15 @@ Setup and Installation
         `DB_CONNECTION=sqlite
         DB_DATABASE=database/database.sqlite`
 
-6.  **Run Migrations**:
+7.  **Run Migrations**:
 
     `php artisan migrate`
 
-7.  **Run the Application**:
+8.  **Run the Application**:
 
     `php artisan serve`
 
-8.  **Run Queues with Priority**:
+9.  **Run Queues with Priority**:
 
     To ensure jobs are processed in the order of priority, start the queue worker as follows:
 
