@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-4">
                 <label for="method" class="form-label">Method</label>
-                <input type="text" name="method" id="method" class="form-control" required placeholder="e.g. example">
+                <input type="text" name="method" id="method" class="form-control" required placeholder="e.g. execute">
             </div>
             <div class="col-md-2">
                 <label for="priority" class="form-label">Priority</label>
